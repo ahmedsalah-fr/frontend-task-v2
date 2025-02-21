@@ -1,29 +1,4 @@
-import {
-  Box,
-  Typography,
-  TextField,
-  IconButton,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  InputAdornment,
-  Avatar,
-  Badge,
-  Divider,
-  Autocomplete,
-  Menu,
-  MenuItem,
-} from "@mui/material";
-import {
-  Search,
-  Notifications,
-  Star,
-  KeyboardArrowDown,
-} from "@mui/icons-material";
-import logo from "../assets/images/logo/logo.png";
-import { americanStates } from "../constants/index";
-import { mobileNavBar } from "../hooks/home.hook";
+import { Box } from "@mui/material";
 import { useHome } from "../hooks/home.hook";
 import { TopBar } from "../components/TopBar";
 import { EventCards } from "../components/EventCards";

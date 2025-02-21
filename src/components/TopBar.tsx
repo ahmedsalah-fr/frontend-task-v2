@@ -46,7 +46,6 @@ export const TopBar = ({
         sx={{
           width: isMobile ? "100%" : "33%",
           display: "flex",
-          justifyContent: "center",
         }}
       >
         <Autocomplete
@@ -65,7 +64,7 @@ export const TopBar = ({
                 backgroundColor: "#1e1e1e",
                 borderRadius: "5%",
                 input: { color: "white" },
-                width: isMobile ? "100%" : "70%",
+                width: "100%",
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "rgba(255, 255, 255, 0.23)" },
                   "&:hover fieldset": {
