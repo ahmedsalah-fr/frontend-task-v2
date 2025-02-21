@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useScreenSize from "./screen-size.hook";
 
 const useSignUp = () => {
   const [profilePic, setProfilePic] = useState<string | ArrayBuffer | null>(
@@ -15,6 +16,9 @@ const useSignUp = () => {
   const [approach, setApproach] = useState<string>("");
   const [journey, setJourney] = useState<string>("");
   const [findOutAnswer, setFindOutAnswer] = useState<string>("");
+
+  const { isMobile } = useScreenSize();
+  const { isTablet } = useScreenSize();
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -69,6 +73,8 @@ const useSignUp = () => {
     findOutAnswer,
     handleImageUpload,
     handleSubmit,
+    isMobile,
+    isTablet,
   };
 };
 

@@ -4,9 +4,9 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import SignIn from "./pages/signIn/SignIn";
-import Home from "./pages/home/Home";
-import SignUp from "./pages/signup/SignUp";
+import SignIn from "./pages/SignIn";
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
 
 const AppRoutes = () => (
   <Router>

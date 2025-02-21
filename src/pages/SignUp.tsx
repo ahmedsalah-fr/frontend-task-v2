@@ -16,9 +16,8 @@ import {
 } from "@mui/material";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/material.css";
-import useScreenSize from "../../hooks/screen-size.hook";
-import useSignUp from "../../hooks/sign-up.hook";
-import { genders } from "../../constants";
+import useSignUp from "../hooks/sign-up.hook";
+import { genders } from "../constants";
 import {
   Person,
   Email,
@@ -55,10 +54,9 @@ const SignUp = () => {
     findOutAnswer,
     handleImageUpload,
     handleSubmit,
+    isMobile,
+    isTablet,
   } = useSignUp();
-
-  const { isMobile } = useScreenSize();
-  const { isTablet } = useScreenSize();
 
   return (
     <Box

@@ -8,9 +8,8 @@ import {
   Alert,
 } from "@mui/material";
 import { Visibility, VisibilityOff, Email } from "@mui/icons-material";
-import useScreenSize from "../../hooks/screen-size.hook";
 import { Link } from "react-router-dom";
-import useSignIn from "../../hooks/sign-in.hook";
+import useSignIn from "../hooks/sign-in.hook";
 
 const SignIn = () => {
   const {
@@ -22,10 +21,9 @@ const SignIn = () => {
     handlePasswordVisibility,
     handleSignIn,
     error,
+    isMobile,
+    isTablet,
   } = useSignIn();
-
-  const { isMobile } = useScreenSize();
-  const { isTablet } = useScreenSize();
 
   return (
     <Box
