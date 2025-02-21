@@ -125,6 +125,7 @@ export const TopBar = ({
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
             <Avatar alt="User" onClick={openMenu} sx={{ cursor: "pointer" }} />
             <KeyboardArrowDown
+              onClick={openMenu}
               sx={{
                 color: "black",
                 fontSize: 16,
