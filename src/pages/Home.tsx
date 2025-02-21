@@ -4,7 +4,11 @@ import { TopBar } from "../components/TopBar";
 import { EventCards } from "../components/EventCards";
 import { MobileNavBar } from "../components/MobileNavBar";
 
-const HomePage = () => {
+interface HomePageProps {
+  setIsAuthenticated: (value: boolean) => void;
+}
+
+const HomePage = ({ setIsAuthenticated }: HomePageProps) => {
   const {
     search,
     setSearch,
@@ -14,7 +18,8 @@ const HomePage = () => {
     menuAnchor,
     openMenu,
     closeMenu,
-  } = useHome();
+    handleLogout,
+  } = useHome(setIsAuthenticated);
 
   return (
     <Box
@@ -32,6 +37,7 @@ const HomePage = () => {
         menuAnchor={menuAnchor}
         openMenu={openMenu}
         closeMenu={closeMenu}
+        handleLogout={handleLogout}
       />
 
       <MobileNavBar isMobile={isMobile} />

@@ -11,7 +11,11 @@ import { Visibility, VisibilityOff, Email } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useSignIn from "../hooks/sign-in.hook";
 
-const SignIn = () => {
+const SignIn = ({
+  setIsAuthenticated,
+}: {
+  setIsAuthenticated: (value: boolean) => void;
+}) => {
   const {
     email,
     setEmail,
@@ -23,7 +27,7 @@ const SignIn = () => {
     error,
     isMobile,
     isTablet,
-  } = useSignIn();
+  } = useSignIn(setIsAuthenticated);
 
   return (
     <Box
@@ -55,62 +59,69 @@ const SignIn = () => {
           </Alert>
         )}
 
-        <TextField
-          fullWidth
-          label="Email Address"
-          placeholder="username@example.com"
-          margin="normal"
-          variant="standard"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Email sx={{ color: "white" }} />
-              </InputAdornment>
-            ),
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignIn();
           }}
-          sx={{ input: { color: "white" }, label: { color: "white" } }}
-        />
-
-        <TextField
-          fullWidth
-          label="Password"
-          placeholder="Enter your password"
-          margin="normal"
-          variant="standard"
-          type={showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  onClick={handlePasswordVisibility}
-                  edge="end"
-                  sx={{ color: "white" }}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          sx={{ input: { color: "white" }, label: { color: "white" } }}
-        />
-
-        <Button
-          variant="contained"
-          fullWidth
-          sx={{
-            mt: 3,
-            backgroundColor: "#1E3A8A",
-            borderRadius: "50px",
-            color: "white",
-          }}
-          onClick={handleSignIn}
         >
-          Sign In
-        </Button>
+          <TextField
+            fullWidth
+            label="Email Address"
+            placeholder="username@example.com"
+            margin="normal"
+            variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email sx={{ color: "white" }} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{ input: { color: "white" }, label: { color: "white" } }}
+          />
+
+          <TextField
+            fullWidth
+            label="Password"
+            placeholder="Enter your password"
+            margin="normal"
+            variant="standard"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={handlePasswordVisibility}
+                    edge="end"
+                    sx={{ color: "white" }}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            sx={{ input: { color: "white" }, label: { color: "white" } }}
+          />
+
+          <Button
+            variant="contained"
+            fullWidth
+            type="submit"
+            sx={{
+              mt: 3,
+              backgroundColor: "#1E3A8A",
+              borderRadius: "50px",
+              color: "white",
+            }}
+          >
+            Sign In
+          </Button>
+        </form>
 
         <Typography
           variant="body2"

@@ -13,6 +13,7 @@ import {
 import { Search, KeyboardArrowDown, Notifications } from "@mui/icons-material";
 import { americanStates } from "../constants";
 import logo from "../assets/images/logo/logo.png";
+import { useNavigate } from "react-router-dom";
 
 export const TopBar = ({
   search,
@@ -21,7 +22,10 @@ export const TopBar = ({
   menuAnchor,
   openMenu,
   closeMenu,
+  handleLogout,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -156,9 +160,16 @@ export const TopBar = ({
               },
             }}
           >
-            <MenuItem onClick={closeMenu}>Home</MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate("/home");
+                closeMenu();
+              }}
+            >
+              Home
+            </MenuItem>
             <Divider />
-            <MenuItem onClick={closeMenu}>Logout</MenuItem>
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
         </Box>
       )}
