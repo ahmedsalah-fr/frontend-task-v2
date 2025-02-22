@@ -149,3 +149,31 @@ export const americanStates = [
   "Wisconsin",
   "Wyoming",
 ];
+
+export const notifications = [
+  {
+    id: 1,
+    message: "Your Exotic Veggie Platter is on the menu. Get excited!",
+    time: "2m",
+  },
+  {
+    id: 2,
+    message: "Today's the day. Your culinary adventure is almost there.",
+    time: "51m",
+  },
+  {
+    id: 3,
+    message: "Last chance to add a little extra to your Tuesday delivery.",
+    time: "2 days ago",
+  },
+  {
+    id: 4,
+    message: "Today's the day. Your culinary adventure is almost there.",
+    time: "2 days ago",
+  },
+  {
+    id: 5,
+    message: "Your Exotic Veggie Platter is on the menu. Get excited!",
+    time: "2 days ago",
+  },
+];

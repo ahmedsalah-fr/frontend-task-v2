@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
 import { useState, useEffect } from "react";
+import { Notifications } from "./pages/Notification";
 
 const AppRoutes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -45,6 +46,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Home setIsAuthenticated={setIsAuthenticated} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notification"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Notifications setIsAuthenticated={setIsAuthenticated} />
             </ProtectedRoute>
           }
         />

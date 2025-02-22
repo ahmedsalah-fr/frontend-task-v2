@@ -1,7 +1,37 @@
 import { Box, IconButton, Typography } from "@mui/material";
-import { mobileNavBar } from "../hooks/home.hook";
+import { Notifications, Person, Circle, Home } from "@mui/icons-material";
+import { Badge } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const MobileNavBar = ({ isMobile }: { isMobile: boolean }) => {
+  const navigate = useNavigate();
+
+  const mobileNavBar = [
+    {
+      icon: (
+        <Home
+          onClick={() => navigate("/home")}
+          sx={{ color: "white", cursor: "pointer" }}
+        />
+      ),
+      label: "Home",
+    },
+    { icon: <Circle sx={{ color: "white" }} />, label: "Circles" },
+    {
+      icon: (
+        <Badge
+          onClick={() => navigate("/notification")}
+          badgeContent={2}
+          color="error"
+        >
+          <Notifications sx={{ color: "white" }} />
+        </Badge>
+      ),
+      label: "Notifications",
+    },
+    { icon: <Person sx={{ color: "white" }} />, label: "Profile" },
+  ];
+
   if (!isMobile) return null;
 
   return (
@@ -24,6 +54,8 @@ export const MobileNavBar = ({ isMobile }: { isMobile: boolean }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            width: "20%",
+            height: "20%",
           }}
         >
           <IconButton sx={{ display: "flex", flexDirection: "column" }}>

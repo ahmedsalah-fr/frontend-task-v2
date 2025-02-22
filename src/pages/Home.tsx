@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useHome } from "../hooks/home.hook";
-import { TopBar } from "../components/TopBar";
+import { DesktopNavBar } from "../components/DesktopNavBar";
 import { EventCards } from "../components/EventCards";
 import { MobileNavBar } from "../components/MobileNavBar";
 
@@ -30,7 +30,7 @@ const HomePage = ({ setIsAuthenticated }: HomePageProps) => {
         py: 6,
       }}
     >
-      <TopBar
+      <DesktopNavBar
         search={search}
         setSearch={setSearch}
         isMobile={isMobile}
