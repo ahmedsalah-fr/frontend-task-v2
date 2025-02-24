@@ -11,6 +11,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { PublicRoute } from "./components/PublicRoute";
 import { useState, useEffect } from "react";
 import { Notifications } from "./pages/Notification";
+import Profile from "./pages/Profile";
 
 const AppRoutes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -54,6 +55,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Notifications setIsAuthenticated={setIsAuthenticated} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Profile setIsAuthenticated={setIsAuthenticated} />
             </ProtectedRoute>
           }
         />

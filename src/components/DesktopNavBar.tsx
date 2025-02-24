@@ -16,8 +16,8 @@ import logo from "../assets/images/logo/logo.png";
 import { useNavigate } from "react-router-dom";
 
 export const DesktopNavBar = ({
-  search,
-  setSearch,
+  search = "",
+  setSearch = (value: string) => {},
   isMobile,
   menuAnchor,
   openMenu,
@@ -196,6 +196,8 @@ export const DesktopNavBar = ({
             >
               Home
             </MenuItem>
+            <Divider />
+            <MenuItem onClick={() => navigate("/profile")}>Profile</MenuItem>
             <Divider />
             <MenuItem onClick={handleLogout}>Logout</MenuItem>
           </Menu>
